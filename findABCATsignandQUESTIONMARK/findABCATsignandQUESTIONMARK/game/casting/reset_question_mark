@@ -1,0 +1,19 @@
+from http.client import CannotSendRequest
+from game.casting.cast import Cast
+from game.shared.point import Point
+
+
+class ResetQuestionMark(Cast):
+
+    def reset_actor(self, actor):
+        x = 450
+        y = 1
+        position = Point(x, y)
+        position = position.scale(self._cell_size)
+        actor.set_position(position)
+
+
+# Override the execute(cast, script) method as follows:
+# 1) get all the actors from the cast
+# 2) loop through the actors
+# 3) call the move_next() method on each actor
